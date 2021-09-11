@@ -1,4 +1,4 @@
-package qts.locadora;
+package qts.locadora.service;
 
 import java.util.Date;
 
@@ -15,7 +15,7 @@ public class LocacaoServiceTest {
 	
 	@Test
 	public void teste() {
-
+		
 		// Cenário
 		Cliente cliente = new Cliente("Ádrian");
 		Jogo jogo = new Jogo("God of War",40.66, 5);

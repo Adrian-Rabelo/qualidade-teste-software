@@ -13,6 +13,8 @@ import qts.locadora.util.DataUtil;
 public class LocacaoService {
 	
 	private final int DIAS_PADRAO = 5;
+	public int testePublic;
+	int testeDefault;
 	
 	public Locacao alugarJogo(Cliente cliente, Jogo jogo) {
 		Locacao locacao = new Locacao();
