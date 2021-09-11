@@ -9,6 +9,8 @@ public class Locacao {
 	private Date devolucao;
 	private double valor;
 	
+	public Locacao() {}
+	
 	public Locacao(Cliente cliente, Jogo jogo, Date retirada, Date devolucao, double valor) {
 		super();
 		this.cliente = cliente;
