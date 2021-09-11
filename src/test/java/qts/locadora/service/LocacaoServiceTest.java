@@ -8,7 +8,6 @@ import org.junit.Test;
 import qts.locadora.model.Cliente;
 import qts.locadora.model.Jogo;
 import qts.locadora.model.Locacao;
-import qts.locadora.service.LocacaoService;
 import qts.locadora.util.DataUtil;
 
 public class LocacaoServiceTest {
