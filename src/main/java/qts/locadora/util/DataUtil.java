@@ -24,4 +24,21 @@ public class DataUtil {
 		return calendar.getTime();
 	}
 	
+	public boolean verificaDatasIguais(Date date1, Date date2) {
+		Calendar c1 = Calendar.getInstance();
+		c1.setTime(date1);
+		Calendar c2 = Calendar.getInstance();
+		c2.setTime(date2);
+		
+		if(c1.YEAR == c2.YEAR && 
+			c1.MONTH == c2.MONTH &&
+			c1.DAY_OF_MONTH == c2.DAY_OF_MONTH) {
+			
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
 }
