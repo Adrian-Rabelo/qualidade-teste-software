@@ -5,6 +5,8 @@ import java.util.Date;
 import org.junit.Assert;
 import org.junit.Test;
 
+import qts.locadora.exceptions.JogoSemEstoqueException;
+import qts.locadora.exceptions.LocacaoValorNuloException;
 import qts.locadora.model.Cliente;
 import qts.locadora.model.Jogo;
 import qts.locadora.model.Locacao;
@@ -16,7 +18,19 @@ public class LocacaoService {
 	public int testePublic;
 	int testeDefault;
 	
-	public Locacao alugarJogo(Cliente cliente, Jogo jogo) {
+	public Locacao alugarJogo(Cliente cliente, Jogo jogo) throws Exception {
+		if(cliente == null) {
+			throw new LocacaoValorNuloException("Cliente nulo");
+		}
+		
+		if(jogo == null ) {
+			throw new LocacaoValorNuloException("Jogo nulo");
+		}
+		
+		if(jogo.getEstoque() == 0) {
+			throw new JogoSemEstoqueException();
+		}
+		
 		Locacao locacao = new Locacao();
 		locacao.setCliente(cliente);
 		locacao.setJogo(jogo);
