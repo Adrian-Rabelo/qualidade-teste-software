@@ -8,7 +8,9 @@ import qts.locadora.model.Locacao;
 import qts.locadora.util.DataUtil;
 
 public class LocacaoService {
+	
 	private final int DIAS_PADRAO = 5;
+	
 	public Locacao alugarJogo(Cliente cliente, Jogo jogo) {
 		Locacao locacao = new Locacao();
 		locacao.setCliente(cliente);
@@ -22,10 +24,21 @@ public class LocacaoService {
 		
 		return locacao;
 	}
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Cenário
+		Cliente cliente = new Cliente("Ádrian");
+		Jogo jogo = new Jogo("God of War",40.66, 5);
 		
-
+		// Ação
+		LocacaoService locacaoService = new LocacaoService();
+		Locacao locacao = locacaoService.alugarJogo(cliente, jogo);
+		
+		// Verificação
+		System.out.println("Jogo da locação é igual ao da instância? -> " + locacao.getJogo().getNome().equals(jogo.getNome()));
+		System.out.println("Cliente da locação é igual ao da instância? -> " + locacao.getCliente().getNome().equals(cliente.getNome()));
+		System.out.println("Valor da locação é igual ao da instância? -> " + (locacao.getValor()==jogo.getPreco()));
+		System.out.println("Data de locaçãoe é igual a data de hoje? -> " + (new DataUtil().verificaDatasIguais(locacao.getRetirada(), new Date())));
 	}
 
 }
