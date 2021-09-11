@@ -16,4 +16,16 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Nome: " + nome;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		Cliente cli = (Cliente) obj;
+		return nome.equals(cli.nome);
+	}
 }
