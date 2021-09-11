@@ -2,6 +2,9 @@ package qts.locadora.service;
 
 import java.util.Date;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import qts.locadora.model.Cliente;
 import qts.locadora.model.Jogo;
 import qts.locadora.model.Locacao;
@@ -25,7 +28,9 @@ public class LocacaoService {
 		return locacao;
 	}
 	
-	public static void main(String[] args) {
+	@Test
+	public void teste() {
+
 		// Cenário
 		Cliente cliente = new Cliente("Ádrian");
 		Jogo jogo = new Jogo("God of War",40.66, 5);
@@ -35,10 +40,11 @@ public class LocacaoService {
 		Locacao locacao = locacaoService.alugarJogo(cliente, jogo);
 		
 		// Verificação
-		System.out.println("Jogo da locação é igual ao da instância? -> " + locacao.getJogo().getNome().equals(jogo.getNome()));
-		System.out.println("Cliente da locação é igual ao da instância? -> " + locacao.getCliente().getNome().equals(cliente.getNome()));
-		System.out.println("Valor da locação é igual ao da instância? -> " + (locacao.getValor()==jogo.getPreco()));
-		System.out.println("Data de locaçãoe é igual a data de hoje? -> " + (new DataUtil().verificaDatasIguais(locacao.getRetirada(), new Date())));
+		Assert.assertTrue(("Erro no jogo seleionado para locação"),locacao.getJogo().getNome().equals(jogo.getNome()));
+		Assert.assertTrue(("Erro nos dados do cliente"), locacao.getCliente().getNome().equals(cliente.getNome()));
+		Assert.assertTrue(("Erro no valor da locação"), (locacao.getValor()==jogo.getPreco()));
+		Assert.assertTrue(("Erro na data ad locação"), (new DataUtil().verificaDatasIguais(locacao.getRetirada(), new Date())));
+		
 	}
 
 }
