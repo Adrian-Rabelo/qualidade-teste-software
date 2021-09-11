@@ -1,4 +1,4 @@
-package Util;
+package qts.locadora.util;
 
 import java.util.Calendar;
 import java.util.Date;
